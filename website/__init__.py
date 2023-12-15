@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -15,5 +16,9 @@ def create_app():
 
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")
+
+    from . import models
+    with app.app_context():
+        db.create_all()
 
     return app
