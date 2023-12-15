@@ -10,15 +10,17 @@ Todo (sec):
 - https
 - change password
 - password recovery
+- restricted unsuccesful login info
 Optional:
 - anti xsrf token
-- unsuccesful logins monitoring
+- unsuccesful logins monitoring, limiter
 - login attempt delay (anti bruteforce)
 - password entropy info
 - password anti-dict info
 - sending info to user about new logins
 Very optional:
 - pretty form in bootstrap or sth
+- email confirmation
 - admin panel
 
 Apache: https://www.petefreitag.com/blog/secure-apache-conf/
