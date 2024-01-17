@@ -1,12 +1,25 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
-content %}
-<form method="POST">
-  <label for="email">Email:</label><br />
-  <input type="text" id="email" name="email" /><br />
-  <label for="usr">Username:</label><br />
-  <input type="text" id="usr" name="usr" /><br />
-  <label for="pwd">Password:</label><br />
-  <input type="password" id="pwd" name="pwd" /><br />
-  <input type="submit" value="Register" />
-</form>
+{% extends "base_pwd.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<div class="d-flex flex-column justify-content-center align-items-center h-100">
+  <div class="p-5 bg-dark-subtle w-50 rounded">
+      <form class="text-center d-flex flex-column justify-content-center align-items-center gap-3" method="POST">
+        <h1>Register account</h1>
+        <input class="form-control" autocomplete="off" type="email" id="email" name="email" placeholder="E-Mail">
+        <input class="form-control" autocomplete="off" type="text" id="usr" name="usr" placeholder="Username">
+        {% block mainpassword %}
+        {{ super() }}
+        {% endblock %}
+        {% block rpassword %}
+        {{ super() }}
+        {% endblock %}
+        <button class="btn btn-outline-secondary w-25" type="submit">Register</button>
+        <div>
+          Already have an account? <a class="link-secondary" href="/login"><b>Login!</b></a>
+        </div>
+      </form>
+      <br>
+      {% block messages %}{{ super() }}{% endblock %}
+    </div>
+</div>
 {% endblock %}

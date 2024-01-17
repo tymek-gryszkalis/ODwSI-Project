@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block title %} Login {% endblock %}
 {% block content %}
- <form method="POST">
-    <label for="email">Email:</label><br>
-    <input type="text" id="email" name="email"><br>
-    <label for="pwd">Password:</label><br>
-    <input type="password" id="pwd" name="pwd"><br><br>
-    <input type="submit" value="Login">
- </form><br>
- No account? <a href="/signup">Sign up now!</a>
+<div class="d-flex flex-column justify-content-center align-items-center h-100">
+   <div class="p-5 bg-dark-subtle w-50 rounded">
+      <form method="POST" class="text-center d-flex flex-column justify-content-center align-items-center gap-3">
+         <h1>Login</h1>
+         <input class="form-control" autocomplete="off" type="email" id="email" name="email" placeholder="E-Mail">
+         <input class="form-control" autocomplete="off" type="password" id="pwd" name="pwd" placeholder="Password">
+         <button class="btn btn-outline-secondary w-25" type="submit">Login</button>
+         <div>
+            <a class="link-secondary" href="pwd_recovery"><b>I forgot my password.</b></a><br>
+            No account? <a class="link-secondary" href="/signup"><b>Sign up now!</b></a>
+         </div>
+      </form>
+      <br>
+      {% block messages %}{{super()}}{% endblock %}
+   </div>
+</div>
 {% endblock %}
