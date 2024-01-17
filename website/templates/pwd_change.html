@@ -1,0 +1,20 @@
+{% extends "base_pwd.html" %}
+{% block title %} Change password {% endblock %}
+{% block content %}
+<div class="d-flex flex-column justify-content-center align-items-center h-100">
+   <div class="p-5 bg-dark-subtle w-50 rounded">
+      <form method="POST" class="text-center d-flex flex-column justify-content-center align-items-center gap-3">
+            <h1>Change password</h1>
+            {% block mainpassword %}
+            {{ super() }}
+            {% endblock %}
+            {% block rpassword %}
+            {{ super() }}
+            {% endblock %}
+            <button class="btn btn-outline-secondary" type="Submit" name="submit">Change password</button>
+      </form>
+      <br>
+      {% block messages %}{{super()}}{% endblock %}
+   </div>
+</div>
+{% endblock %}
